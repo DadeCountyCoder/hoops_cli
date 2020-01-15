@@ -3,15 +3,19 @@ module HoopsCli
 
         def call
             puts "Welcome Heat Nation!"
-            current_standing
+            dade
             roster
         end
 
-        def current_standing
-            puts 'record 27-12, currently 3rd place eastern conference'
+        def dade
+            puts 'The Miami Heat will always be home to WADE county!! 
+            A 13-time NBA All-Star, 
+            Wade is Miamis all-time leader in points, 
+            games, assists, steals, shots made and shots taken.'
         end
 
         def roster
+            puts
             puts 'starting_lineup
             pg_kendrick_nunn
             sg_Jimmy Butler
