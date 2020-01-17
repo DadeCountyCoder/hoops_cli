@@ -1,6 +1,8 @@
 module HoopsCli
 
-    class CLI
+    class Player
+
+        
 
     end
 
