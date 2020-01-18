@@ -8,3 +8,13 @@ PLanning Cli Project
 6.hardcode project
 7.start scraping
 8.check cli checklist off learn site
+
+
+Process.
+i want to call from to to the Cli,
+the Cli to call upon scarping and return that to the cli, and it should be able to create a new player using  the retrieved data from cli.
+I want the roster to be shown and the user to be able to pick a player and ged more info on the player
+
+
+Need to have an understanding of instance & class methods
+what an instance variable is

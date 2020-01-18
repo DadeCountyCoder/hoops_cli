@@ -1,12 +1,17 @@
-# require "hoops_cli/nba"
-require 'pry'
-require 'open-uri'
-require 'nokogiri'
+# require "hoops_cli/player"
+# require 'pry'
+# require 'open-uri'
+# require 'nokogiri'
 
 require 'nokogiri'
 require 'pry'
 require 'open-uri'
+class HoopsCli::Scraper
+def scrape
 site = "https://www.nba.com/heat/roster"
+
+
+
 @doc = Nokogiri::HTML(open(site))
  team_roster = @doc.css(".roster")
  team_roster.each do |player|	
@@ -19,10 +24,14 @@ site = "https://www.nba.com/heat/roster"
      player_bio = p.xpath("//div/@aria-label")
     end
     # binding.pry
-  end
- # @doc2 = Nokogiri::HTML(open('player_url'))
- #        stats = @doc2.css(".player-stats__stat-value")
- #         binding.pry
+end
+
+
+
+ 
+ @doc2 = Nokogiri::HTML(open('player_url'))
+        stats = @doc2.css(".player-stats__stat-value")
+        #   binding.pry
 # [10] pry(main)> stats[1].text
 # => "27.3"
 # [11] pry(main)> stats[2].text
@@ -61,3 +70,5 @@ site = "https://www.nba.com/heat/roster"
 # Miami HeatMiami Heat
 # Miami Heat Roster
 # Player roster with photos, bios, and stats
+end
+end
