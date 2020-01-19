@@ -1,6 +1,6 @@
-class HoopsCli::Player
+class HoopsCli::Nba
   
-  attr_accessor :name, :url, :pl_num, :pl_pos 
+  attr_accessor :url, :name, :pl_num, :pl_pos 
   
   @@all = []
   
@@ -17,6 +17,4 @@ class HoopsCli::Player
   end
 end 
 
-
-
-end
+# if need be could add  :url to attr & url to initialize argument

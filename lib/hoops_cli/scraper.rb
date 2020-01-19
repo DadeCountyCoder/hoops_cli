@@ -1,37 +1,49 @@
-# require "hoops_cli/player"
-# require 'pry'
-# require 'open-uri'
-# require 'nokogiri'
-require_relative "player"
-require 'nokogiri'
+require "hoops_cli/nba"
 require 'pry'
-require 'open-uri'
-class HoopsCli::Scraper
-def scrape
-site = "https://www.nba.com/heat/roster"
+
+class HoopsCli::Scraper 
+
+    # def self.scrape
+    #     doc =  Nokogiri::HTML(open("https://www.basketball-reference.com/teams/MIA/2020.html"))
+    #     coach = anchor.css("a").attr("href=/coaches/spoeler99c.html").value
+    #     binding.pry
+    # end
+
+ 
+   def self.scrape
+    doc =  Nokogiri::HTML(open("https://www.nba.com/heat/stats/points"))
+   player = doc.css("div.player-name__inner-wrapper").each do |anchor|
+        url = anchor.css("a").attr("href").value,  
+        name = anchor.css("a").text,
+         pl_num =  anchor.css("span.playerNumber").text,
+         pl_pos = anchor.css("span.playerPosition").text
+
+     HoopsCli::Nba.new(url, name, pl_num, pl_pos)
+   end 
+end
+end
+# if need  url in () for Nba.new
 
 
-
-@doc = Nokogiri::HTML(open(site))
- team_roster = @doc.css(".pane-content")
- baller = HoopsCli::Player.new
-#  binding.pry
- team_roster.each do |player|	
+# site = "https://www.nba.com/heat/roster"
+# @doc = Nokogiri::HTML(open(site))
+#  team_roster = @doc.css(".pane-content")
+#  baller = HoopsCli::Player.new
+# #  binding.pry
+# team_roster.each do |player|	
 #    name = player.css(".roster__player__header__heading").text
-   player_url = player.css("footer.roster__player__footer [href]").attr("href").value
+#    player_url = player.css("footer.roster__player__footer [href]").attr("href").value
 
 #    binding.pry
-   position = player.css(".roster__player__header_position").text
-   number = player.css(".roster__player__header_jnumber").text
+#    position = player.css(".roster__player__header_position").text
+#    number = player.css(".roster__player__header_jnumber").text
 #    binding.pry
-   end
 #    info = player.css(".roster__player")
 #      info.each do |p|
 #      player_bio = p.xpath("//div/@aria-label")
     # end
     #  binding.pry
-end
-end
+
 
 
 

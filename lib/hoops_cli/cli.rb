@@ -7,19 +7,19 @@ class HoopsCli::CLI
      puts "Please enter a number for you favorite player!"
      puts
      players
-     roster
+     team
   end
     
   def players
-    arr = HoopsCli::Player.all.uniq { |player| player.name }
+    arr = HoopsCli::Nba.all.uniq { |player| player.name }
     arr.each.with_index(1) do |object, index|
     puts "#{index}. #{object.name}"
     end
   end
   
-  def roster
+  def team
     puts
-    puts "Type the number of your favorite player here!:"
+    puts "Type the number of your Player"
     puts 
     puts "You can type exit at anytime to leave the program"
     input = ""
@@ -27,8 +27,8 @@ class HoopsCli::CLI
       input = gets.chomp
       
         
-      if (1..17).include?(input.to_i)
-        @chosen_player = HoopsCli::Player.all[input.to_i - 1]
+      if (1..14).include?(input.to_i)
+        @chosen_player = HoopsCli::Nba.all[input.to_i - 1]
         puts
         puts "You entered player #{@chosen_player.name}"
         puts "His jersey number is #{@chosen_player.pl_num}"
@@ -42,20 +42,20 @@ class HoopsCli::CLI
         puts "You can type 'exit' at any time to leave the program"
         elsif input.downcase == "r"
           players
-          roster
+          team
         elsif input.downcase == "exit"
            puts
-           puts "I hope you enjoyed yourself!."
-           break
+           puts "I hope you enjoyed yourself!"
+          break
         else
           puts
           puts "Sorry! Please enter a specific number from the roster!"
           players
-          roster
+          team
         end
       end
-       puts "Adios!"
-       exit
+      # puts "Adios!"
+      exit
     end 
 end
 
