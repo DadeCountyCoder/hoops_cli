@@ -1,67 +1,63 @@
-# module HoopsCli
-#     class CLI
 class HoopsCli::CLI
-        def call
-            puts "Welcome Heat Nation!"
-            scrape = HoopsCli::Scraper.new
-            scrape.scrape
-            # binding.pry
-            # players = Player.new
-            puts "Please enter a number for you favorite player!"
-            puts
-            # binding.pry
-            roster(players)
-            
-            # players
-            # command
-            
-            # dade
-            # roster
-        end
-
-        #  def dade
-        #     puts 'The Miami Heat will always be home to WADE county!!
-        #     A 13-time NBA All-Star,
-        #     Wade is Miamis all-time leader in points,
-        #     games, assists, steals, shots made and shots taken.'
-        # end
-
-         def roster(players)
+  
+  def call 
+     puts "Welcome to the Heat Nation experience!"
+     puts
+     HoopsCli::Scraper.scrape
+     puts "Please enter a number for you favorite player!"
+     puts
+     players
+     roster
+  end
+    
+  def players
+    arr = HoopsCli::Player.all.uniq { |player| player.name }
+    arr.each.with_index(1) do |object, index|
+    puts "#{index}. #{object.name}"
+    end
+  end
+  
+  def roster
+    puts
+    puts "Type the number of your favorite player here!:"
+    puts 
+    puts "You can type exit at anytime to leave the program"
+    input = ""
+    while input != "exit"
+      input = gets.chomp
+      
+        
+      if (1..17).include?(input.to_i)
+        @chosen_player = HoopsCli::Player.all[input.to_i - 1]
+        puts
+        puts "You entered player #{@chosen_player.name}"
+        puts "His jersey number is #{@chosen_player.pl_num}"
+        puts "His position is a #{@chosen_player.pl_pos}"
+        puts "For #{@chosen_player.name}'s game statistics go to:"
+        puts "#{@chosen_player.url}"
+        puts
+        puts "Type 'r' to view the roster again:"
+        puts "Or type the number of another player:"
+        puts
+        puts "You can type 'exit' at any time to leave the program"
+        elsif input.downcase == "r"
           players
-        #     puts
-        #     puts 'starting_lineup
-        #     pg_kendrick_nunn
-        #     sg_Jimmy Butler
-        #     sf_Duncan Robinson
-        #     pf_Meyers Leonard
-        #     c_Bam Adebayo'
-            # puts
-            puts 'Please enter a number for you favorite player! or type exit:'
-            input = gets.chomp
-        
-            if input == 'exit'
-              puts 'Have a wonderful night! from the National Basketball Association!'
-            elsif input.to_i.is_a? Numeric
-              if input.to_i.between?(1, 14)
-                get_data(input.to_i)
-              else
-                puts 'Please enjoy'
-                list
-              end
-              menu
-            else
-              puts 'Select a number or type exit'
-              list
-              menu
-            end
-         
-        
-            end 
-
-
-
-
+          roster
+        elsif input.downcase == "exit"
+           puts
+           puts "I hope you enjoyed yourself!."
+           break
+        else
+          puts
+          puts "Sorry! Please enter a specific number from the roster!"
+          players
+          roster
         end
+      end
+       puts "Adios!"
+       exit
+    end 
+end
 
 
         
