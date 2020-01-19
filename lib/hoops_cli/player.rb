@@ -1,22 +1,21 @@
-# module HoopsCli
-
-#     class Player
 class HoopsCli::Player
-  attr_accessor :name, :player_url, :number, :position 
+  
+  attr_accessor :name, :url, :pl_num, :pl_pos 
   
   @@all = []
   
-  # def initialize(player_url, name, number, position)
-  #   @name = name 
-  #   @player_url = player_url
-  #   @number = number
-  #   @position = position
+  def initialize(url, name, pl_num, pl_pos)
+    @name = name 
+    @url = url
+    @pl_num = pl_num
+    @pl_pos = pl_pos
     @@all << self
-  # end 
+  end 
  
   def self.all 
     @@all 
   end
+end 
 
 
 

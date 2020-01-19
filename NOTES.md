@@ -19,3 +19,6 @@ possible move-i don't think it will serve a purpose there because im gonna ask t
 
 Need to have an understanding of instance & class methods
 what an instance variable is
+
+<!-- Could not find gem 'hoops_cli x64-mingw32' in any of the gem sources listed in your Gemfile
+Run `bundle install` to install missing gems -->
