@@ -14,6 +14,7 @@ Process.
 i want to call from to to the Cli,
 the Cli to call upon scarping and return that to the cli, and it should be able to create a new player using  the retrieved data from cli.
 I want the roster to be shown and the user to be able to pick a player and ged more info on the player
+possible move-i don't think it will serve a purpose there because im gonna ask the user to interact in the roster method when a new player is created
 
 
 Need to have an understanding of instance & class methods

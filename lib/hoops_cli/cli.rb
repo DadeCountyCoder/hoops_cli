@@ -5,10 +5,12 @@ class HoopsCli::CLI
             puts "Welcome Heat Nation!"
             scrape = HoopsCli::Scraper.new
             scrape.scrape
-            binding.pry
+            # binding.pry
+            # players = Player.new
             puts "Please enter a number for you favorite player!"
             puts
-            roster
+            # binding.pry
+            roster(players)
             
             # players
             # command
@@ -24,7 +26,8 @@ class HoopsCli::CLI
         #     games, assists, steals, shots made and shots taken.'
         # end
 
-         def roster
+         def roster(players)
+          players
         #     puts
         #     puts 'starting_lineup
         #     pg_kendrick_nunn

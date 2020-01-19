@@ -2,7 +2,7 @@
 # require 'pry'
 # require 'open-uri'
 # require 'nokogiri'
-
+require_relative "player"
 require 'nokogiri'
 require 'pry'
 require 'open-uri'
@@ -13,24 +13,31 @@ site = "https://www.nba.com/heat/roster"
 
 
 @doc = Nokogiri::HTML(open(site))
- team_roster = @doc.css(".roster")
+ team_roster = @doc.css(".pane-content")
+ baller = HoopsCli::Player.new
+#  binding.pry
  team_roster.each do |player|	
-   name = player.css(".roster__player__header__heading").text
+#    name = player.css(".roster__player__header__heading").text
+   player_url = player.css("footer.roster__player__footer [href]").attr("href").value
+
+#    binding.pry
    position = player.css(".roster__player__header_position").text
    number = player.css(".roster__player__header_jnumber").text
-   player_url = player.css("footer.roster__player__footer [href]").attr("href").value
-   info = player.css(".roster__player")
-     info.each do |p|
-     player_bio = p.xpath("//div/@aria-label")
-    end
-    # binding.pry
+#    binding.pry
+   end
+#    info = player.css(".roster__player")
+#      info.each do |p|
+#      player_bio = p.xpath("//div/@aria-label")
+    # end
+    #  binding.pry
+end
 end
 
 
 
- 
- @doc2 = Nokogiri::HTML(open('player_url'))
-        stats = @doc2.css(".player-stats__stat-value")
+#  def player_info
+#  @doc2 = Nokogiri::HTML(open('player_url'))
+#         stats = @doc2.css(".player-stats__stat-value")
         #   binding.pry
 # [10] pry(main)> stats[1].text
 # => "27.3"
@@ -70,5 +77,4 @@ end
 # Miami HeatMiami Heat
 # Miami Heat Roster
 # Player roster with photos, bios, and stats
-end
-end
+# end

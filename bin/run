@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
-require_relative '../lib/require'
+# require_relative '../lib/require'
 
+require "bundler/setup"
 
+require "require"
 HoopsCli::CLI.new.call
