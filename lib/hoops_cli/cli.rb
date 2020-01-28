@@ -1,6 +1,6 @@
 class HoopsCli::CLI
-  
-  def call 
+
+  def call
      puts
      puts "Welcome to the Heat Nation experience!"
      puts
@@ -10,7 +10,7 @@ class HoopsCli::CLI
      players
      team
   end
-    
+
   def players
     arr = HoopsCli::Nba.all.uniq { |player| player.name }
     arr.each.with_index(1) do |object, index|
@@ -27,15 +27,17 @@ class HoopsCli::CLI
       input = gets.chomp
 
 
-      if (1..14).include?(input.to_i)
-        @chosen_player = HoopsCli::Nba.all[input.to_i - 1]
-        puts
-        puts "You entered player #{@chosen_player.name}"
-        puts "His jersey number is #{@chosen_player.pl_num}"
-        puts "His position is a #{@chosen_player.pl_pos}"
-        puts "For #{@chosen_player.name}'s game statistics go to:"
-        puts "#{@chosen_player.url}"
-        puts
+       if (1..14).include?(input.to_i)
+        display_player(input)
+
+        # @chosen_player = HoopsCli::Nba.all[input.to_i - 1]
+        # puts
+        # puts "You entered player #{@chosen_player.name}"
+        # puts "His jersey number is #{@chosen_player.pl_num}"
+        # puts "His position is a #{@chosen_player.pl_pos}"
+        # puts "For #{@chosen_player.name}'s game statistics go to:"
+        # puts "#{@chosen_player.url}"
+        # puts
         puts "Type 'roster' to view the roster again:"
         puts "Or type the number of another player:"
         puts
@@ -56,7 +58,24 @@ class HoopsCli::CLI
       end
        puts "Signing off!"
       exit
-    end 
+    end
+
+    def display_player(input)
+
+      @chosen_player = HoopsCli::Nba.all[input.to_i - 1]
+        puts
+        puts "You entered player #{@chosen_player.name}"
+        puts "His jersey number is #{@chosen_player.pl_num}"
+        puts "His position is a #{@chosen_player.pl_pos}"
+        puts "For #{@chosen_player.name}'s game statistics go to:"
+        puts "#{@chosen_player.url}"
+        puts
+
+    end
+
+
+
+    
 end
 
 # def team
@@ -72,14 +91,12 @@ end
 #       # scrape(input.to_i)
 #     else
 #       puts 'Please info on one of these players!'
-      
+
 #     end
 #     menu
 #   else
 #     puts 'Select a number or type exit'
-    
+
 #     menu
 #   end
 # end
-
-        
