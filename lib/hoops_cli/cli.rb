@@ -1,3 +1,4 @@
+require 'pry'
 class HoopsCli::CLI
 
   def call
@@ -13,6 +14,7 @@ class HoopsCli::CLI
 
   def players
     arr = HoopsCli::Nba.all.uniq { |player| player.name }
+    # binding.pry
     arr.each.with_index(1) do |object, index|
     puts "#{index}. #{object.name}"
     end

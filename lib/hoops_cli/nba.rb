@@ -1,3 +1,4 @@
+require 'pry'
 class HoopsCli::Nba
   
   attr_accessor :url, :name, :pl_num, :pl_pos 
@@ -10,6 +11,8 @@ class HoopsCli::Nba
     @pl_num = pl_num
     @pl_pos = pl_pos
     @@all << self
+    # binding.pry
+
   end 
  
   def self.all 
