@@ -3,12 +3,6 @@ require 'pry'
 
 class HoopsCli::Scraper 
 
-    # def self.scrape
-    #     doc =  Nokogiri::HTML(open("https://www.basketball-reference.com/teams/MIA/2020.html"))
-    #     coach = anchor.css("a").attr("href=/coaches/spoeler99c.html").value
-    #     binding.pry
-    # end
-
  
    def self.scrape
     doc =  Nokogiri::HTML(open("https://www.nba.com/heat/stats/points"))
@@ -19,11 +13,19 @@ class HoopsCli::Scraper
          pl_pos = anchor.css("span.playerPosition").text
 
      HoopsCli::Nba.new(url, name, pl_num, pl_pos)
-   end 
+        end 
+    end
 end
-end
-# if need  url in () for Nba.new
 
+
+    # def self.scrape
+    #     doc =  Nokogiri::HTML(open("https://www.basketball-reference.com/teams/MIA/2020.html"))
+    #     coach = anchor.css("a").attr("href=/coaches/spoeler99c.html").value
+    #     binding.pry
+    # end
+
+
+# if need  url in () for Nba.new
 
 # site = "https://www.nba.com/heat/roster"
 # @doc = Nokogiri::HTML(open(site))
@@ -34,6 +36,7 @@ end
 #    name = player.css(".roster__player__header__heading").text
 #    player_url = player.css("footer.roster__player__footer [href]").attr("href").value
 
+
 #    binding.pry
 #    position = player.css(".roster__player__header_position").text
 #    number = player.css(".roster__player__header_jnumber").text
@@ -43,8 +46,6 @@ end
 #      player_bio = p.xpath("//div/@aria-label")
     # end
     #  binding.pry
-
-
 
 
 #  def player_info
